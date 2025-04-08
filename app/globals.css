@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: 15, 58%, 59%;
+  --primary-foreground: 0, 0%, 100%;
+
+  --secondary: 30, 20%, 94%;
+  --secondary-foreground: 15, 58%, 59%;
+
+  --accent: 15, 58%, 59%;
+  --accent-foreground: 0, 0%, 100%;
+
+  --background: 0, 0%, 100%;
+  --foreground: 240, 10%, 3.9%;
+
+  --card: 0, 0%, 100%;
+  --card-foreground: 240, 10%, 3.9%;
+
+  --popover: 0, 0%, 100%;
+  --popover-foreground: 240, 10%, 3.9%;
+
+  --muted: 240, 4.8%, 95.9%;
+  --muted-foreground: 240, 3.8%, 46.1%;
+
+  --destructive: 0, 84.2%, 60.2%;
+  --destructive-foreground: 0, 0%, 98%;
+
+  --border: 240, 5.9%, 90%;
+  --input: 240, 5.9%, 90%;
+  --ring: 15, 58%, 59%;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --primary: 15, 58%, 59%;
+  --primary-foreground: 0, 0%, 100%;
+
+  --secondary: 240, 5.9%, 10%;
+  --secondary-foreground: 0, 0%, 98%;
+
+  --accent: 12, 6.5%, 15.1%;
+  --accent-foreground: 0, 0%, 98%;
+
+  --background: 240, 10%, 3.9%;
+  --foreground: 0, 0%, 98%;
+
+  --card: 240, 10%, 3.9%;
+  --card-foreground: 0, 0%, 98%;
+
+  --popover: 240, 10%, 3.9%;
+  --popover-foreground: 0, 0%, 98%;
+
+  --muted: 240, 3.7%, 15.9%;
+  --muted-foreground: 240, 5%, 64.9%;
+
+  --destructive: 0, 62.8%, 30.6%;
+  --destructive-foreground: 0, 0%, 98%;
+
+  --border: 240, 3.7%, 15.9%;
+  --input: 240, 3.7%, 15.9%;
+  --ring: 15, 58%, 59%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-montserrat font-bold;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-custom {
+    @apply container mx-auto px-4 md:px-8;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white hover:bg-primary/90 transition-colors duration-300 rounded-md px-6 py-3 font-medium;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-white transition-colors duration-300 rounded-md px-6 py-3 font-medium;
+  }
+
+  .heading-xl {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+  }
+
+  .heading-lg {
+    @apply text-3xl md:text-4xl font-bold;
+  }
+
+  .heading-md {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+
+  .heading-sm {
+    @apply text-xl md:text-2xl font-bold;
+  }
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.slide-up {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scroll animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Swiper custom styles */
+.swiper {
+  width: 100%;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.partners-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.partners-container .swiper-slide {
+  height: auto;
+}
+
+.services-swiper .swiper-button-next,
+.services-swiper .swiper-button-prev,
+.projects-swiper .swiper-button-next,
+.projects-swiper .swiper-button-prev,
+.testimonials-swiper .swiper-button-next,
+.testimonials-swiper .swiper-button-prev {
+  color: hsl(var(--primary));
+}
+
+.services-swiper .swiper-pagination-bullet-active,
+.projects-swiper .swiper-pagination-bullet-active,
+.testimonials-swiper .swiper-pagination-bullet-active {
+  background-color: hsl(var(--primary));
+}
+
+.projects-swiper .swiper-slide {
+  transition: all 0.3s ease;
+}
+
+.projects-swiper .swiper-slide-active {
+  transform: scale(1.05);
+}
+
+.testimonials-swiper {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* Add styles for the dual-direction swipers */
+.swiper-rtl .swiper-button-next {
+  transform: rotate(180deg);
+}
+
+.swiper-rtl .swiper-button-prev {
+  transform: rotate(180deg);
+}
