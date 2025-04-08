@@ -171,55 +171,6 @@ export default function RavalementDeFacadePage() {
         </div>
       </section>
 
-      {/* Before/After Gallery Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container px-4 mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-center">Avant / Après</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              <div className="relative h-80 rounded-lg overflow-hidden">
-                <Image
-                  src="/placeholder.svg?width=600&height=800&text=Avant"
-                  alt="Façade avant travaux"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute top-4 left-4 bg-slate-800 text-white px-3 py-1 rounded-md text-sm font-medium">
-                  Avant
-                </div>
-              </div>
-              <p className="text-center text-gray-600">Façade détériorée nécessitant un ravalement</p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="space-y-4"
-            >
-              <div className="relative h-80 rounded-lg overflow-hidden">
-                <Image
-                  src="/placeholder.svg?width=600&height=800&text=Après"
-                  alt="Façade après travaux"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-md text-sm font-medium">
-                  Après
-                </div>
-              </div>
-              <p className="text-center text-gray-600">Façade rénovée et protégée</p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
       {/* Process Section */}
       <section className="py-16 bg-white">
         <div className="container px-4 mx-auto">
