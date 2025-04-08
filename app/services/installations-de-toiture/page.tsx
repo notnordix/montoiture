@@ -12,7 +12,9 @@ import Link from "next/link"
 export default function RoofInstallationPage() {
   useEffect(() => {
     const cleanup = setupRevealAnimation()
-    return () => cleanup()
+    return () => {
+      if (cleanup) cleanup()
+    }
   }, [])
 
   const installationTypes = [
