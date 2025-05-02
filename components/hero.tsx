@@ -49,6 +49,9 @@ export default function Hero() {
   // Text variations for the rotating highlights
   const highlights = ["24h/24", "urgence", "7j/7", "rapide", "fiable"]
 
+  // Fix for accessing window during SSR
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768
+
   return (
     <section
       className="relative flex flex-col items-start justify-center overflow-hidden bg-gray-900"
@@ -59,7 +62,8 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/s7.webp')",
+            backgroundImage: "url('/MONTOITURE/mockup5.png')",
+            backgroundSize: isMobile ? "250%" : "cover" // Adjusted to avoid SSR issues
           }}
         />
 
