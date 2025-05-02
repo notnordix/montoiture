@@ -63,7 +63,7 @@ export default function Hero() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat overflow-hidden"
           style={{
             backgroundImage: "url('/MONTOITURE/mockup5.png')",
-            backgroundSize: isMobile ? "auto 100%" : "cover",
+            backgroundSize: isMobile ? "auto 300%" : "cover",
             backgroundPosition: isMobile ? "center center" : "center",
           }}
         />
