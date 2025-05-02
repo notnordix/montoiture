@@ -219,7 +219,7 @@ export default function ContactPage() {
                   <MapPin className="h-5 w-5 text-primary" />
                 </div>
                 <div>
-                  <h6 className="font-bold">Vence, France</h6>
+                  <h6 className="font-bold">Villeneuve-Loubet, France</h6>
                   <p className="text-gray-600 mt-2">{COMPANY.address}</p>
                 </div>
               </div>
