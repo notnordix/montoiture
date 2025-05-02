@@ -60,10 +60,11 @@ export default function Hero() {
       {/* Background with simple overlay */}
       <div className="absolute inset-0 w-full h-full">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat overflow-hidden"
           style={{
             backgroundImage: "url('/MONTOITURE/mockup5.png')",
-            backgroundSize: isMobile ? "270%" : "cover" // Adjusted to avoid SSR issues
+            backgroundSize: isMobile ? "auto 100%" : "cover",
+            backgroundPosition: isMobile ? "center center" : "center",
           }}
         />
 
@@ -72,7 +73,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 px-3 sm:px-4 mx-auto">
+      <div className="container relative z-10 px-3 sm:px-4 mx-auto max-w-full overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -119,7 +120,7 @@ export default function Hero() {
           >
             <a
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 whitespace-nowrap border border-primary rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-white hover:bg-primary-700 h-10 px-4 py-2 text-sm sm:text-lg hover:scale-105 sm:px-8 sm:py-5"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-white hover:bg-primary-700 h-10 px-4 py-2 text-sm sm:text-lg hover:scale-105 sm:px-8 sm:py-5"
             >
               Demander un devis
               <ArrowRight className="ml-1 h-4 w-4 sm:ml-2 sm:h-5 sm:w-5" />
