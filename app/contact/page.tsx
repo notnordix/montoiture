@@ -90,7 +90,7 @@ export default function ContactPage() {
             {/* Image */}
             <div className="relative" data-aos="fade-right">
               <Image
-                src="https://expertoit.fr/wp-content/uploads/2025/04/WhatsApp-Image-2025-04-02-at-01.06.40-e1743548864739.jpeg"
+                src="/MONTOITURE/mockup1.png"
                 alt="MONTOITURE équipe d'experts"
                 width={500}
                 height={672}
