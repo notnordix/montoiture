@@ -5,9 +5,6 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Check } from "lucide-react"
 import { setupRevealAnimation } from "@/lib/animation"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
 
 export default function RoofInstallationPage() {
   useEffect(() => {
@@ -56,7 +53,7 @@ export default function RoofInstallationPage() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: "url('/roofing-tile-1-scaled.webp')"
+              backgroundImage: "url('/roofing-tile-1-scaled.webp')",
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
@@ -232,12 +229,7 @@ export default function RoofInstallationPage() {
               viewport={{ once: true }}
               className="relative h-64 overflow-hidden rounded-lg shadow-md"
             >
-              <Image
-                src="/s1.webp"
-                alt="Réalisation de toiture 1"
-                fill
-                className="object-cover"
-              />
+              <Image src="/s1.webp" alt="Réalisation de toiture 1" fill className="object-cover" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -246,12 +238,7 @@ export default function RoofInstallationPage() {
               viewport={{ once: true }}
               className="relative h-64 overflow-hidden rounded-lg shadow-md"
             >
-              <Image
-                src="/s1-1.webp"
-                alt="Réalisation de toiture 1"
-                fill
-                className="object-cover"
-              />
+              <Image src="/s1-1.webp" alt="Réalisation de toiture 1" fill className="object-cover" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -260,12 +247,7 @@ export default function RoofInstallationPage() {
               viewport={{ once: true }}
               className="relative h-64 overflow-hidden rounded-lg shadow-md"
             >
-              <Image
-                src="/s1-2.webp"
-                alt="Réalisation de toiture 3"
-                fill
-                className="object-cover"
-              />
+              <Image src="/s1-2.webp" alt="Réalisation de toiture 3" fill className="object-cover" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -274,12 +256,7 @@ export default function RoofInstallationPage() {
               viewport={{ once: true }}
               className="relative h-64 overflow-hidden rounded-lg shadow-md"
             >
-              <Image
-                src="/s1-3.webp"
-                alt="Réalisation de toiture 4"
-                fill
-                className="object-cover"
-              />
+              <Image src="/s1-3.webp" alt="Réalisation de toiture 4" fill className="object-cover" />
             </motion.div>
           </div>
         </div>

@@ -5,7 +5,6 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion, useAnimation, useInView } from "framer-motion"
 import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay } from "swiper/modules"
 
@@ -115,13 +114,13 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" ref={ref} className="section-padding bg-gray-50">
+    <section id="services" ref={ref} className="py-12 sm:py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <span className="text-primary font-medium">Nos services</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
@@ -139,7 +138,7 @@ export default function Services() {
           initial={{ opacity: 0, x: -30 }}
           animate={isInView ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-6"
+          className="mb-4 sm:mb-6"
         >
           <Swiper
             modules={[Autoplay]}
@@ -164,7 +163,7 @@ export default function Services() {
             {services.map((service, index) => (
               <SwiperSlide key={`row1-${index}`}>
                 <Link href={service.link} className="block h-full">
-                  <div className="relative h-80 rounded-lg overflow-hidden group">
+                  <div className="relative h-64 sm:h-72 md:h-80 rounded-lg overflow-hidden group">
                     <Image
                       src={service.image || "/placeholder.svg"}
                       alt={service.title}
@@ -218,7 +217,7 @@ export default function Services() {
             {services2.map((service, index) => (
               <SwiperSlide key={`row2-${index}`}>
                 <Link href={service.link} className="block h-full">
-                  <div className="relative h-80 rounded-lg overflow-hidden group">
+                  <div className="relative h-64 sm:h-72 md:h-80 rounded-lg overflow-hidden group">
                     <Image
                       src={service.image || "/placeholder.svg"}
                       alt={service.title}
@@ -243,12 +242,13 @@ export default function Services() {
         </motion.div>
 
         <div className="mt-12 text-center">
-          <Button className="bg-primary hover:bg-primary-600 transition-colors" asChild>
-            <Link href="/services">
-              Voir tous nos services
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
+          <a
+            href="/services"
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-white hover:bg-primary-700 h-10 px-4 py-2"
+          >
+            Voir tous nos services
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </a>
         </div>
       </div>
     </section>

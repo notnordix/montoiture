@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Facebook, Instagram, Twitter, Linkedin, ArrowUp, MapPin, Phone, Mail, Clock } from "lucide-react"
 import { motion } from "framer-motion"
 import { COMPANY } from "@/lib/constants"
@@ -48,19 +49,21 @@ export default function Footer() {
       </h2>
 
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-16 max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+      <div className="container mx-auto px-4 py-10 sm:py-12 md:py-16 max-w-7xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-8 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-3">
             <Link href="/" className="flex items-center mb-6 group">
-              <motion.span
-                className="text-2xl font-bold"
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 400, damping: 10 }}
-              >
-                <span className="text-primary">MONT</span>
-                <span className="text-white">OITURE</span>
-              </motion.span>
+              <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
+                <Image
+                  src="/MONTOITURE/white-logo.png"
+                  alt="Montoiture Logo"
+                  width={150}
+                  height={50}
+                  className="h-auto w-auto"
+                  priority
+                />
+              </motion.div>
             </Link>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Des solutions de toiture durables et esthétiques pour protéger votre maison des intempéries. Expertise et
@@ -146,7 +149,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-gray-800">
+        <div className="mt-8 sm:mt-10 md:mt-12 pt-6 sm:pt-8 border-t border-gray-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 mb-4 md:mb-0">
               © {currentYear} {COMPANY.name}. Tous droits réservés.

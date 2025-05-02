@@ -2,10 +2,7 @@
 
 import { useEffect } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { setupRevealAnimation } from "@/lib/animation"
 
 export default function RoofRepairPage() {
@@ -23,7 +20,7 @@ export default function RoofRepairPage() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: "url('/roofing-tile-1-scaled.webp')"
+              backgroundImage: "url('/roofing-tile-1-scaled.webp')",
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
@@ -86,8 +83,8 @@ export default function RoofRepairPage() {
       </section>
 
       {/* Image Gallery */}
-     {/* Image Gallery */}
-     <section className="py-16 bg-gray-50">
+      {/* Image Gallery */}
+      <section className="py-16 bg-gray-50">
         <div className="container px-4 mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">Nos travaux de réparation de toiture</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -150,7 +147,6 @@ export default function RoofRepairPage() {
           </div>
         </div>
       </section>
-
 
       {/* Services Details */}
       <section className="py-16 bg-white">

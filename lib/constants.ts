@@ -18,6 +18,6 @@ export const COMPANY = {
 }
 
 export const SITE_CONFIG = {
-  metaTitle: "MONTOITURE - Experts en toiture",
+  metaTitle: "MONTOITURE",
   metaDescription: "Services professionnels de toiture pour votre maison ou entreprise",
 }

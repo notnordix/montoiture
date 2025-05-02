@@ -63,13 +63,13 @@ export default function WhyChooseUs() {
   ]
 
   return (
-    <section id="why-choose-us" ref={ref} className="section-padding bg-gray-50">
+    <section id="why-choose-us" ref={ref} className="py-12 sm:py-16 md:py-24 bg-gray-50">
       <div className="container mx-auto px-4 max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <span className="text-primary font-medium">Pourquoi nous choisir</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
@@ -90,8 +90,10 @@ export default function WhyChooseUs() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`${reason.size} h-full`}
             >
-              <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 h-full p-6 flex flex-col">
-                <div className={`w-16 h-16 rounded-full ${reason.bgColor} flex items-center justify-center mb-4`}>
+              <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 h-full p-4 sm:p-6 flex flex-col">
+                <div
+                  className={`w-12 h-12 sm:w-16 sm:h-16 rounded-full ${reason.bgColor} flex items-center justify-center mb-3 sm:mb-4`}
+                >
                   {reason.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-3">{reason.title}</h3>

@@ -2,10 +2,8 @@
 
 import { useEffect } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { motion } from "framer-motion"
-import { ArrowRight, Check, Droplets, Shield, Wrench } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Check, Droplets, Shield, Wrench } from "lucide-react"
 import { setupRevealAnimation } from "@/lib/animation"
 
 export default function PoseDeGouttiereServicePage() {
@@ -51,7 +49,7 @@ export default function PoseDeGouttiereServicePage() {
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage: "url('/roofing-tile-1-scaled.webp?width=1920&height=1080')"
+              backgroundImage: "url('/roofing-tile-1-scaled.webp?width=1920&height=1080')",
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
@@ -177,19 +175,14 @@ export default function PoseDeGouttiereServicePage() {
         <div className="container px-4 mx-auto">
           <h2 className="text-3xl font-bold mb-8 text-center">Nos réalisations</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <motion.div
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
               viewport={{ once: true }}
               className="relative h-64 overflow-hidden rounded-lg shadow-md"
             >
-              <Image
-                src="/s9.webp"
-                alt="Réalisation de toiture 1"
-                fill
-                className="object-cover"
-              />
+              <Image src="/s9.webp" alt="Réalisation de toiture 1" fill className="object-cover" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -198,12 +191,7 @@ export default function PoseDeGouttiereServicePage() {
               viewport={{ once: true }}
               className="relative h-64 overflow-hidden rounded-lg shadow-md"
             >
-              <Image
-                src="/s9-1.webp"
-                alt="Réalisation de toiture 1"
-                fill
-                className="object-cover"
-              />
+              <Image src="/s9-1.webp" alt="Réalisation de toiture 1" fill className="object-cover" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -212,12 +200,7 @@ export default function PoseDeGouttiereServicePage() {
               viewport={{ once: true }}
               className="relative h-64 overflow-hidden rounded-lg shadow-md"
             >
-              <Image
-                src="/s9-2.webp"
-                alt="Réalisation de toiture 3"
-                fill
-                className="object-cover"
-              />
+              <Image src="/s9-2.webp" alt="Réalisation de toiture 3" fill className="object-cover" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -226,12 +209,7 @@ export default function PoseDeGouttiereServicePage() {
               viewport={{ once: true }}
               className="relative h-64 overflow-hidden rounded-lg shadow-md"
             >
-              <Image
-                src="/s9-3.webp"
-                alt="Réalisation de toiture 4"
-                fill
-                className="object-cover"
-              />
+              <Image src="/s9-3.webp" alt="Réalisation de toiture 4" fill className="object-cover" />
             </motion.div>
           </div>
         </div>

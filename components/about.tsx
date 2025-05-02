@@ -3,10 +3,8 @@
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { motion, useAnimation, useInView } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { ArrowRight, Award, Clock, Shield, Users } from "lucide-react"
 import CountUp from "react-countup"
-import Link from "next/link"
 
 export default function About() {
   const ref = useRef(null)
@@ -78,9 +76,9 @@ export default function About() {
 
   return (
     <>
-      <section id="about" ref={ref} className="py-20 bg-gray-50">
+      <section id="about" ref={ref} className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12">
             {/* Left side - Content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -92,7 +90,7 @@ export default function About() {
               <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">Entrepreneurs en toiture professionnels</h2>
               <div className="w-20 h-1 bg-primary mb-6"></div>
 
-              <div className="space-y-4 mb-8">
+              <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                 <div className="flex items-start">
                   <div className="bg-primary/10 rounded-full p-2 mr-4 mt-1">
                     <Award className="h-5 w-5 text-primary" />
@@ -131,12 +129,13 @@ export default function About() {
                 </div>
               </div>
 
-              <Button className="bg-primary hover:bg-primary-600 transition-colors w-fit" asChild>
-                <Link href="/about">
-                  Découvrir notre histoire
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+              <a
+                href="/about"
+                className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-white hover:bg-primary-700 h-10 px-4 py-2 w-fit"
+              >
+                Découvrir notre histoire
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </a>
             </motion.div>
 
             {/* Right side - Images */}
@@ -146,10 +145,10 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="lg:col-span-7 relative"
             >
-              <div className="grid grid-cols-12 gap-4 h-full max-w-full">
+              <div className="grid grid-cols-12 gap-2 sm:gap-4 h-full max-w-full">
                 <div className="col-span-8 relative rounded-lg overflow-hidden shadow-xl h-full">
                   <Image
-                    src="/s1-1.webp"
+                    src="/MONTOITURE/mockup4.png"
                     alt="MONTOITURE équipe d'experts"
                     width={800}
                     height={600}
@@ -160,7 +159,7 @@ export default function About() {
                 <div className="col-span-4 flex flex-col gap-4">
                   <div className="relative rounded-lg overflow-hidden shadow-xl h-1/2">
                     <Image
-                      src="/s1.webp"
+                      src="/MONTOITURE/mockup2.png"
                       alt="Service de toiture"
                       width={400}
                       height={300}
@@ -170,7 +169,7 @@ export default function About() {
 
                   <div className="relative rounded-lg overflow-hidden shadow-xl h-1/2">
                     <Image
-                      src="/s11-2.webp"
+                      src="/MONTOITURE/mockup3.png"
                       alt="Travaux de toiture"
                       width={400}
                       height={300}

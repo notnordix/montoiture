@@ -11,7 +11,11 @@ import { setupRevealAnimation } from "@/lib/animation"
 export default function ServicesPage() {
   useEffect(() => {
     const cleanup = setupRevealAnimation()
-    return () => cleanup()
+    return () => {
+      if (cleanup) {
+        cleanup()
+      }
+    }
   }, [])
 
   // Array of gradient colors for the cards
@@ -45,8 +49,7 @@ export default function ServicesPage() {
       title: "Réparation de toiture",
       description:
         "Les réparations de toiture consistent à corriger les dommages tels que les fuites, les tuiles cassées ou les problèmes d'étanchéité pour restaurer l'intégrité et la protection du toit.",
-      image:
-        "/s2.webp",
+      image: "/s2.webp",
       link: "/services/reparation-de-toiture",
     },
     {
@@ -70,16 +73,14 @@ export default function ServicesPage() {
       title: "Traitement de charpente",
       description:
         "Le traitement de charpente vise à protéger le bois des attaques d'insectes, des moisissures et de l'humidité pour garantir sa solidité et sa durabilité.",
-      image:
-        "/s5.webp",
+      image: "/s5.webp",
       link: "/services/charpente",
     },
     {
       id: 6,
       title: "Étanchéité toiture",
       description: "Assurer que le toit est imperméable à l'eau pour éviter les fuites et les infiltrations.",
-      image:
-        "/s6.webp",
+      image: "/s6.webp",
       link: "/services/etancheite-de-toiture",
     },
     {
@@ -119,8 +120,7 @@ export default function ServicesPage() {
       title: "Pose de Vélux et fenêtres de toit",
       description:
         "Installation rapide et précise de Vélux et fenêtres de toit pour optimiser la lumière naturelle et la ventilation de votre maison. Finitions soignées et durables pour un confort maximal.",
-      image:
-        "/s11.webp",
+      image: "/s11.webp",
       link: "/services/pose-de-velux-et-fenetres-de-toit",
     },
     {
@@ -136,14 +136,13 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 bg-gray-900">
+      <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gray-900">
         {/* Background with overlay */}
         <div className="absolute inset-0 w-full h-full">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage:
-                "url('/roofing-tile-1-scaled.webp')"
+              backgroundImage: "url('/roofing-tile-1-scaled.webp')",
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
@@ -161,7 +160,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-10 sm:py-14 md:py-16 lg:py-24 bg-gray-50">
         <div className="container px-4 mx-auto max-w-7xl">
           <div className="text-center mb-16 reveal">
             <span className="text-primary font-medium">Nos services</span>
@@ -184,7 +183,7 @@ export default function ServicesPage() {
                 className="reveal"
               >
                 <Link href={service.link} className="block h-full">
-                  <div className="relative h-96 rounded-lg overflow-hidden group shadow-lg hover:shadow-xl transition-all duration-300">
+                  <div className="relative h-80 sm:h-88 md:h-96 rounded-lg overflow-hidden group shadow-lg hover:shadow-xl transition-all duration-300">
                     <Image
                       src={service.image || "/placeholder.svg"}
                       alt={service.title}
@@ -210,7 +209,7 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary/10">
+      <section className="py-10 sm:py-14 md:py-16 bg-primary/10">
         <div className="container px-4 mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Prêt à démarrer votre projet ?</h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">

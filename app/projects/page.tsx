@@ -96,14 +96,13 @@ export default function ProjectsPage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 bg-gray-900">
+      <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gray-900">
         {/* Background with overlay */}
         <div className="absolute inset-0 w-full h-full">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage:
-                "url('/roofing-tile-1-scaled.webp')"
+              backgroundImage: "url('/roofing-tile-1-scaled.webp')",
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
@@ -121,7 +120,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Projects Grid Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-10 sm:py-14 md:py-16 lg:py-24 bg-gray-50">
         <div className="container px-4 mx-auto">
           <div className="text-center mb-16">
             <span className="text-primary font-medium">Nos Réalisations</span>
@@ -159,7 +158,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-16 bg-white">
+      <section className="py-10 sm:py-14 md:py-16 bg-white">
         <div className="container px-4 mx-auto">
           <div className="text-center mb-12">
             <span className="text-primary font-medium">Témoignages</span>
@@ -189,7 +188,7 @@ export default function ProjectsPage() {
       </section>
 
       {/* Contact CTA Section */}
-      <section className="py-16 bg-primary/10">
+      <section className="py-10 sm:py-14 md:py-16 bg-primary/10">
         <div className="container px-4 mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Prêt à démarrer votre projet ?</h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">

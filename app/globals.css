@@ -91,7 +91,7 @@
   }
 
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary/90 transition-colors duration-300 rounded-md px-6 py-3 font-medium;
+    @apply bg-primary text-white hover:bg-primary-700 transition-colors duration-300 rounded-md px-6 py-3 font-medium;
   }
 
   .btn-outline {
@@ -189,6 +189,31 @@
   }
 }
 
+/* Pulse animation for fixed phone */
+@keyframes ping-slow {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes ping-slower {
+  75%,
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-ping-slower {
+  animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
 /* Scroll animations */
 .reveal {
   opacity: 0;
@@ -261,4 +286,37 @@
 
 .swiper-rtl .swiper-button-prev {
   transform: rotate(180deg);
+}
+
+/* Mobile menu animations */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.menu-item-enter {
+  opacity: 0;
+  transform: translateX(10px);
+}
+
+.menu-item-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.menu-item-exit {
+  opacity: 1;
+}
+
+.menu-item-exit-active {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 300ms, transform 300ms;
 }

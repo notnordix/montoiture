@@ -9,48 +9,64 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent } from "@/components/ui/card"
-import { MapPin, Phone, Mail, ArrowRight } from "lucide-react"
+import { MapPin, Phone, Mail, ArrowRight, AlertCircle } from "lucide-react"
 import { COMPANY } from "@/lib/constants"
+import { sendQuoteEmail } from "@/lib/actions"
 
 export default function ContactPage() {
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const [formError, setFormError] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [formError, setFormError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setIsSubmitting(true)
+    setFormError(null)
 
-    // Get form data
-    const formData = new FormData(e.target as HTMLFormElement)
-    const name = formData.get("name")
-    const phone = formData.get("phone")
-    const email = formData.get("email")
-    const service = formData.get("service")
-    const message = formData.get("message")
+    try {
+      // Get form data
+      const formData = new FormData(e.target as HTMLFormElement)
+      const name = formData.get("name") as string
+      const phone = formData.get("phone") as string
+      const email = formData.get("email") as string
+      const service = formData.get("service") as string
+      const message = formData.get("message") as string
 
-    // Here you would typically send this data to your backend
-    // For now, we'll just simulate a successful submission
-    console.log("Form submitted with:", { name, phone, email, service, message })
+      // Send email using server action
+      const result = await sendQuoteEmail({
+        name,
+        phone,
+        email,
+        service,
+        message,
+      })
 
-    // Simulate form submission
-    setTimeout(() => {
-      setFormSubmitted(true)
-      // Reset form
-      const form = e.target as HTMLFormElement
-      form.reset()
-    }, 1000)
+      if (result.success) {
+        setFormSubmitted(true)
+        // Reset form
+        const form = e.target as HTMLFormElement
+        form.reset()
+      } else {
+        setFormError(result.message || "Une erreur s'est produite. Veuillez réessayer.")
+      }
+    } catch (err) {
+      console.error("Error submitting form:", err)
+      setFormError("Une erreur s'est produite. Veuillez réessayer.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
     <>
       {/* Hero Section */}
-      <section className="relative py-24 md:py-32 bg-gray-900">
+      <section className="relative py-16 sm:py-20 md:py-24 lg:py-32 bg-gray-900">
         {/* Background with overlay */}
         <div className="absolute inset-0 w-full h-full">
           <div
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{
-              backgroundImage:
-                "url('/roofing-tile-1-scaled.webp')"
+              backgroundImage: "url('/roofing-tile-1-scaled.webp')",
             }}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/80" />
@@ -68,7 +84,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-16 md:py-24 bg-gray-50">
+      <section className="py-10 sm:py-14 md:py-16 lg:py-24 bg-gray-50">
         <div className="container px-4 mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Image */}
@@ -161,15 +177,28 @@ export default function ContactPage() {
                       required
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-primary hover:bg-primary-600 transition-colors">
-                    Obtenez un devis gratuit
-                  </Button>
+
                   {formError && (
-                    <p className="text-red-500 text-sm mt-2">
-                      Une erreur s&apos;est produite lors de la soumission du formulaire. Veuillez vérifier tous les
-                      champs à nouveau.
-                    </p>
+                    <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-md flex items-start gap-2">
+                      <AlertCircle className="h-5 w-5 mt-0.5 flex-shrink-0" />
+                      <p>{formError}</p>
+                    </div>
                   )}
+
+                  <Button
+                    type="submit"
+                    className="w-full bg-primary hover:bg-primary-600 transition-colors"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                        Envoi en cours...
+                      </>
+                    ) : (
+                      "Obtenez un devis gratuit"
+                    )}
+                  </Button>
                 </form>
               )}
             </div>
@@ -178,7 +207,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information Section */}
-      <section className="py-16 bg-white">
+      <section className="py-10 sm:py-14 md:py-16 bg-white">
         <div className="container px-4 mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-right">
             {/* Office */}
@@ -251,7 +280,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary/10">
+      <section className="py-10 sm:py-14 md:py-16 bg-primary/10">
         <div className="container px-4 mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Prêt à démarrer votre projet ?</h2>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">

@@ -34,7 +34,7 @@ export default function FixedPhone() {
         damping: 20,
         y: { duration: 0.8, ease: "easeInOut" },
       }}
-      className="fixed bottom-6 right-6 z-50 bg-green-600 hover:bg-green-700 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
+      className="fixed bottom-6 left-6 z-50 bg-green-600 hover:bg-green-700 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all duration-300"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
     >
@@ -55,13 +55,32 @@ export default function FixedPhone() {
       <motion.div
         className="absolute inset-0 rounded-full border-2 border-green-600"
         animate={{
-          scale: bounce ? [1, 1.5, 1.8] : 1,
-          opacity: bounce ? [1, 0.5, 0] : 1,
+          scale: [1, 1.5, 1.8],
+          opacity: [1, 0.5, 0],
         }}
         transition={{
-          duration: 1,
+          duration: 1.5,
+          repeat: Number.POSITIVE_INFINITY,
+          repeatType: "loop",
           ease: "easeOut",
           times: [0, 0.5, 1],
+        }}
+      />
+
+      {/* Second ripple with delay for continuous effect */}
+      <motion.div
+        className="absolute inset-0 rounded-full border-2 border-green-600"
+        animate={{
+          scale: [1, 1.5, 1.8],
+          opacity: [1, 0.5, 0],
+        }}
+        transition={{
+          duration: 1.5,
+          repeat: Number.POSITIVE_INFINITY,
+          repeatType: "loop",
+          ease: "easeOut",
+          times: [0, 0.5, 1],
+          delay: 0.75, // Half the duration for continuous effect
         }}
       />
     </motion.a>

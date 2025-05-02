@@ -26,32 +26,32 @@ export default function Partners() {
   const partnerLogos = [
     {
       id: 1,
-      image: "p1.webp",
+      image: "/p1.webp",
       alt: "Partenaire 1",
     },
     {
       id: 2,
-      image: "p2.webp",
+      image: "/p2.webp",
       alt: "Partenaire 2",
     },
     {
       id: 3,
-      image: "p3.webp",
+      image: "/p3.webp",
       alt: "Partenaire 3",
     },
     {
       id: 4,
-      image: "p4.webp",
+      image: "/p4.webp",
       alt: "Partenaire 4",
     },
     {
       id: 5,
-      image: "p5.webp",
+      image: "/p5.webp",
       alt: "Partenaire 5",
     },
     {
       id: 6,
-      image: "p6.webp",
+      image: "/p6.webp",
       alt: "Partenaire 6",
     },
   ]
@@ -60,14 +60,14 @@ export default function Partners() {
   const allLogos = [...partnerLogos, ...partnerLogos]
 
   return (
-    <section id="partners" ref={ref} className="py-16 bg-white">
+    <section id="partners" ref={ref} className="py-10 sm:py-12 md:py-16 bg-white">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-6 sm:mb-8 md:mb-12"
         >
           <span className="text-primary font-medium">Nos partenaires</span>
           <h2 className="text-3xl font-bold mt-2 mb-4">Ils nous font confiance</h2>
@@ -111,14 +111,14 @@ export default function Partners() {
               >
                 {allLogos.map((partner, index) => (
                   <SwiperSlide key={`partner-${partner.id}-${index}`}>
-                    <div className="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-4 h-32 flex items-center justify-center">
+                    <div className="rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-3 sm:p-4 h-24 sm:h-28 md:h-32 flex items-center justify-center">
                       <div className="relative h-full w-full">
                         <Image
                           src={partner.image || "/placeholder.svg"}
                           alt={partner.alt}
                           fill
                           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                          className="object-contain"
+                          className="object-contain object-center"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement
                             target.src = "/placeholder.svg?height=100&width=200"

@@ -1,10 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Button } from "@/components/ui/button"
 import { ArrowRight, Phone } from "lucide-react"
 import { motion } from "framer-motion"
-import Link from "next/link"
 import { COMPANY } from "@/lib/constants"
 
 export default function Hero() {
@@ -51,7 +49,7 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex flex-col items-center justify-center overflow-hidden bg-gray-900"
+      className="relative flex flex-col items-start justify-center overflow-hidden bg-gray-900"
       style={{ height: viewportHeight }}
     >
       {/* Background with simple overlay */}
@@ -59,8 +57,9 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage:
-              "url('/s7.webp')",
+            backgroundImage: "url('/MONTOITURE/mockup5.png')",
+            backgroundSize: "cover", // Default for larger screens
+            ...(window.innerWidth <= 768 && { backgroundSize: "250%" }) // Zoomed in for mobile screens
           }}
         />
 
@@ -69,12 +68,12 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container relative z-10 px-4 mx-auto">
+      <div className="container relative z-10 px-3 sm:px-4 mx-auto">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-4xl text-left"
         >
           {/* Main heading with animated reveal */}
           <div className="overflow-hidden">
@@ -82,7 +81,7 @@ export default function Hero() {
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8, ease: "easeOut" }}
-              className="mb-6 text-4xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl"
+              className="mb-3 sm:mb-6 text-3xl font-extrabold tracking-tight text-white md:text-6xl lg:text-7xl"
             >
               Expert couvreur dans les <span className="text-primary">Alpes-Maritimes</span>
             </motion.h1>
@@ -93,7 +92,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="max-w-2xl mx-auto mb-8 text-xl text-gray-300 md:text-2xl"
+            className="mb-4 sm:mb-8 text-lg text-gray-300 md:text-2xl"
           >
             Pour un toit solide et durable. Problème de toiture ? Appelez notre service d'urgence{" "}
             <motion.span
@@ -101,7 +100,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="font-bold text-primary inline-block min-w-[80px]"
+              className="font-bold text-primary inline-block min-w-[60px] sm:min-w-[80px]"
             >
               {highlights[currentHighlight]}
             </motion.span>
@@ -112,32 +111,23 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
-            className="flex flex-col items-center justify-center gap-4 mt-8 sm:flex-row"
+            className="flex flex-row items-center justify-start gap-3 mt-6 sm:gap-4"
           >
-            <Button
-              size="lg"
-              className="px-8 py-6 text-lg font-medium transition-all duration-300 bg-primary hover:bg-primary-600 hover:scale-105"
-              asChild
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-white hover:bg-primary-700 h-11 px-8 py-5 text-sm sm:text-lg hover:scale-105"
             >
-              <Link href="/contact">
-                <motion.span className="flex items-center">
-                  Demander un devis gratuit
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </motion.span>
-              </Link>
-            </Button>
+              Demander un devis
+              <ArrowRight className="ml-1 h-4 w-4 sm:ml-2 sm:h-5 sm:w-5" />
+            </a>
 
-            <Button
-              variant="outline"
-              size="lg"
-              className="px-8 py-6 text-lg font-medium text-primary border-white hover:bg-white/10 hover:text-white transition-all duration-300"
-              asChild
+            <a
+              href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
+              className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-11 px-8 py-5 text-sm sm:text-lg text-primary border-white hover:bg-white/10 hover:text-white"
             >
-              <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}>
-                <Phone className="mr-2 h-5 w-5" />
-                Nous appeler
-              </a>
-            </Button>
+              <Phone className="mr-1 h-4 w-4 sm:mr-2 sm:h-5 sm:w-5" />
+              Nous appeler
+            </a>
           </motion.div>
         </motion.div>
       </div>
