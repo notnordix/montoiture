@@ -12,6 +12,8 @@ export default function Hero() {
 
   // Handle viewport height for mobile browsers
   useEffect(() => {
+    if (typeof window === "undefined") return
+
     const updateViewportHeight = () => {
       // Use a more reliable approach for mobile browsers
       const vh = window.innerHeight
@@ -57,9 +59,7 @@ export default function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/MONTOITURE/mockup5.png')",
-            backgroundSize: "cover", // Default for larger screens
-            ...(window.innerWidth <= 768 && { backgroundSize: "250%" }) // Zoomed in for mobile screens
+            backgroundImage: "url('/s7.webp')",
           }}
         />
 
