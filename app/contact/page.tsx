@@ -267,7 +267,7 @@ export default function ContactPage() {
         <div className="container-fluid px-0">
           <div className="w-full h-[500px]">
             <iframe
-              src="https://maps.google.com/maps?q=43.722670232470534%2C%207.114309699851594&z=15&hl=fr&t=m&output=embed&iwloc=near"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2886.8022529992454!2d7.1266742!3d43.65228239999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12cdd36405a197dd%3A0x656365aa89316c16!2sPREMIUM%20TOITURE!5e0!3m2!1sen!2sma!4v1747631407019!5m2!1sen!2sma"
               className="w-full h-full border-0"
               allowFullScreen
               loading="lazy"
