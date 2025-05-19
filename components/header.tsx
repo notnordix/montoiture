@@ -267,7 +267,7 @@ export default function Header() {
               {/* Header with logo and close button */}
               <div className="p-4 flex justify-between items-center border-b border-gray-100">
                 <Link href="/" className="flex items-center" onClick={() => handleLinkClick("/")}>
-                  <img src="/logo-dark.png" alt={COMPANY.name} className="h-10 w-auto" />
+                  <img src="/MONTOITURE/black-logo.png" alt={COMPANY.name} className="h-10 w-auto" />
                 </Link>
                 <button
                   className="text-gray-700 hover:text-primary p-2 rounded-full hover:bg-gray-100 transition-all duration-200"
